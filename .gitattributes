@@ -3,12 +3,12 @@
 
 int main()
 {
-    int h, m, s;
-    int d = 1000; // we add a delay so that we can use this in function sleep
+    int hour, min, sec;
+    int delay = 1000; // we add a delay so that we can use this in function sleep
     printf("Set time: \n");
-    scanf("%d%d%d", &h, &m, &s);
+    scanf("%d%d%d", &hour, &min, &sec);
 
-    if ((h > 12) || (m > 60) || (s > 60))
+    if ((hour > 12) || (min > 60) || (sec > 60))
     {
         printf("ERROR ! \n");
         exit(0);
@@ -17,24 +17,24 @@ int main()
     while(1) // infinite loop
 
     {
-        s++;
-        if (s > 59)
+        sec++;
+        if (sec > 59)
         {
-            m++;
-            s = 0;
+            min++;
+            sec = 0;
         }
-        if (m > 59)
+        if (min > 59)
         {
-            h++;
-            m = 0;
+            hour++;
+            min = 0;
         }
-        if (h > 12)
+        if (hour > 12)
         {
-            h = 1;
+            hour = 1;
         }
         printf(" \n Clock : ");
-        printf(" \n %02d:%02d:%02d", h, m, s);
-        Sleep(d);
+        printf(" \n %02d:%02d:%02d", hour, min, sec);
+        Sleep(delay);
         system("cls"); // this clears the screen
     }
 }
